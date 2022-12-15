@@ -1,0 +1,32 @@
+{% extends 'client/base.html' %}
+{% load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'client/add_book.css' %}">
+{% endblock css %}
+
+
+{% block content %}
+
+    <h2>Add a book:</h2>
+
+    <input id="upload-file" type="file" name="fileupload" />
+    <button id="upload-button"> Prepare </button>
+
+    {# <form action="/add_book/" method="post" content='text/html; charset=UTF-8' accept-charset="UTF-8"> #}
+    <form action="/add_book/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+
+    {# {{ data|json_script:'data' }} #}
+
+{% endblock content %}
+
+
+{% block js %}
+    <script src="{% static 'client/add_book.js' %}" defer></script>
+{% endblock js %}
+

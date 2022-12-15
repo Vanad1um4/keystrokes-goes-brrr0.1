@@ -1,0 +1,202 @@
+/* ========================================================================= */
+/* === BOOKS SHOWCASE / MY LIBRARY ========================================= */
+
+.showcase {
+    /* width: 940px; */
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: row dense;
+    gap: 10px;
+    padding: 10px;
+    place-self: center;
+
+}
+.showcase > .card {
+    /* width: 300px; */
+    /* position: relative; */
+    background-color: var(--grey2);
+    border-radius: 5px;
+    /* overflow:hidden; */
+    /* white-space: nowarp; */
+    /* text-overflow: ellipsis; */
+    /* position: relative; */
+    /* left: 0px; */
+    /* bottom: 0px; */
+    /* box-shadow: 0px 0px 0px var(--grey2); */
+    transition: 0.1s;
+    /* align-items: center; */
+}
+.showcase > .long-card {
+    grid-column: span 3;
+    /* background-color: var(--grey1); */
+    /* background-color: white; */
+    border-radius: 5px;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.showcase > .long-card > .chapt-card {
+    display: grid;
+    grid-template-columns: auto repeat(4, max-content);
+    background-color: var(--grey2);
+    border-radius: 5px;
+    /* margin: 5px 0px; */
+    padding: 5px;
+}
+.showcase > .long-card > .chapt-card > .chapt-header {
+    display: grid;
+    grid-column: span 5;
+    /* grid-template-columns: subgrid; */
+    pointer-events: none;
+}
+.showcase > .long-card > .chapt-card > .chapt-header > .chapt-compl {
+    text-align: right;
+}
+.showcase > .long-card > .chapt-card > .chapt-header > .chapt-text, .chapt-compl, .chapt-cpm, .chapt-wpm, .chapt-acc {
+    display: grid;
+    grid-template-columns: subgrid;
+    /* display: inline; */
+    padding: 0px 10px;
+    pointer-events: none;
+}
+
+
+.showcase > .long-card > .chapt-card > .text-card {
+    display: grid;
+    grid-column: span 5;
+    grid-template-columns: subgrid;
+    background-color: var(--grey2);
+    border-radius: 5px;
+    margin: 5px 0px;
+    padding: 5px;
+}
+.showcase > .long-card > .chapt-card > .text-card.completed {
+    background-color: #c3ffca;
+}
+.showcase > .long-card > .chapt-card > .text-card.not-completed {
+    background-color: #f8d0d0;
+}
+.showcase > .long-card > .chapt-card > .text-card:hover {
+    cursor: pointer;
+}
+.showcase > .long-card > .chapt-card > .text-card > .text-text, .text-complete, .text-cpm, .text-wpm, .text-acc {
+    /* display: inline; */
+    padding: 0px 10px;
+    pointer-events: none;
+    /* margin-bottom: -4px; */
+}
+.showcase > .long-card > .chapt-card > .text-card > .text-complete, .text-cpm, .text-wpm, .text-acc {
+    /* display: inline; */
+    /* padding: 0px 10px; */
+    /* float: right; */
+}
+.showcase > .long-card > .chapt-card > .text-card > .text-complete {
+    text-align: right;
+    /* width: 105px; */
+}
+.showcase > .long-card > .chapt-card > .text-card > .text-cpm {
+    /* width: 75px; */
+}
+.showcase > .long-card > .chapt-card > .text-card > .text-wpm {
+    /* width: 70px; */
+}
+.showcase > .long-card > .chapt-card > .text-card > .text-acc {
+    /* width: 140px; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.showcase > .card:hover {
+    transition: 0.1s;
+    /* left: 3px; */
+    /* bottom: 5px; */
+    cursor: pointer;
+    background-color: var(--grey3);
+    color: var(--grey8);
+    /* box-shadow: 3px 9px 9px var(--grey3); */
+}
+.showcase > .card > .content {
+    display: grid;
+    grid-template-columns: 100px 230px;
+    /* grid-template-columns: 100px auto; */
+    gap: 0px;
+    grid-template-rows: 37px 38px 37px 38px;
+    user-select: none;
+    pointer-events: none;
+}
+.showcase > .card > .content > .cover {
+    grid-row: 1 / 4;
+    grid-column: 1 / 2;
+    width: 100px;
+    height: 150px;
+    border-radius: 5px;
+}
+.showcase > .card > .content > .title {
+    grid-row: 1;
+    grid-column: 2;
+}
+.showcase > .card > .content > .author {
+    grid-row: 2;
+    grid-column: 2;
+}
+.showcase > .card > .content > .stats {
+    grid-row: 3;
+    grid-column: 2;
+}
+.showcase > .card > .content > .addToLib {
+    grid-row: 4;
+    grid-column: 2;
+}
+.showcase > .card > .content > .title,.author,.stats,.addToLib {
+    color: var(--grey7);
+    padding: 7px;
+    font-size: 125%;
+    /* height: 30px; */
+
+    overflow:hidden;
+    /* white-space: nowarp; */
+    text-overflow: ellipsis;
+}
+.showcase > .card > .content > .addToLib > .add-btn {
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+}
+.showcase > .card > .content > .addToLib > .added-unclear:after {
+    content: 'Pending...';
+    /* color: green; */
+}
+.showcase > .card > .content > .addToLib > .added-yes:after {
+    content: 'In my library';
+    color: green;
+}
+.showcase > .card > .content > .addToLib > .added-yes:hover:after {
+    content: 'Remove from my library';
+    color: red;
+}
+.showcase > .card > .content > .addToLib > .added-no:after {
+    content: 'Not added';
+    color: var(--grey5);
+}
+.showcase > .card > .content > .addToLib > .added-no:hover:after {
+    content: 'Add to my library';
+    color: green;
+}
+
+
+
+
+
+

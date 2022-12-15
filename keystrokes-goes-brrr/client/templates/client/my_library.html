@@ -1,0 +1,54 @@
+{% extends 'client/base.html' %}
+{% load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'client/my_lib_styles.css' %}">
+{% endblock css %}
+
+
+{% block content %}
+
+    <div class="showcase">
+        {# <h2>My library:</h2> #}
+        {# <p>Select book and a chapter to type:</p> #}
+
+        {% for book in books %}
+            <div class="card" id="book{{ book.id }}">
+
+                <div class="content">
+
+                    <img class="cover" src="{{ book.cover.url }}"></img>
+
+                    <div class="title">
+                        {{ book.title }}
+                    </div>
+
+                    <div class="author">
+                        {{ book.author }}
+                    </div>
+
+                    <div class="stats">
+                        {# Let there be stats! #}
+                    </div>
+
+                    {# <div class="addToLib"> #}
+                    {#     <div class="add-btn added-unclear"> </div> #}
+                    {# </div> #}
+
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+
+    {# <div class="sections-area inner-box"> #}
+    {#     <div class="sections"></div> #}
+    {# </div> #}
+{% endblock content %}
+
+
+{% block js %}
+    <script defer src="{% static 'client/my_library.js' %}"></script>
+{% endblock js %}
+
